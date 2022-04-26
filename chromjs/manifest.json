@@ -1,0 +1,40 @@
+{
+    "manifest_version":3,
+    "name":"mu2",
+    "version":"1.0",
+    "description":"第一个插件",
+    "author":"lilin",
+    "icons":{
+        "16":"img/coub.png",
+        "48":"img/coub.png",
+        "128":"img/coub.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+      },
+    
+    "action":{
+        "default_icon":"img/coub.png",
+        "default_title":"第一个chrome插件",
+        "default_popup":"index.html"
+    },
+
+    "permissions":[
+        "tabs",
+        "scripting",
+        "storage"
+        
+    ],
+    "content_scripts": [
+        {
+          "matches": ["http://*/*", "https://*/*"],
+          "js": ["assets/vendor.js","assets/index.js"]
+        }
+      ],
+    "host_permissions":[
+        "*://*/*",
+        "http://*/*",
+        "https://*/*"
+        
+    ]
+}
